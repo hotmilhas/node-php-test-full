@@ -4,6 +4,20 @@
 
 ```js
 // Resposta
+class Array{
+    constructor(array){
+        this._array = array;
+    }
+
+    last(){
+        return this._array[this._array.length - 1];
+    }
+}
+
+let array1 = new Array([1,2,3,4,5,6,7,8,9]);
+console.log(array1.last())
+let array2 = new Array([]);
+console.log(array2.last())
 
 
 // Teste/Exemplos
@@ -26,22 +40,20 @@ function getTransactions() {
                 result.json().then(transactions => {
                     var _transactions = []
 
-                    for (var i in transactions) {
-                        if (transactions[i].realizada)  {
-                            _transactions.push({
-                                id: transactions[i].id,
-                                value: transactions[i].valor,
-                                type: transactions[i].valor < 0 ? 'transference' : 'deposit',
-                            })
+                    _transactions = transactions.filter(item => {
+                        if(item.realizada){
+                            item.type = item.valor < 0 ? 'transference' : 'deposit';
+                            return item;
                         }
-                    }
-
+                    })
+                    
                     resolve(_transactions)
                 })
             })
             .catch(e => reject(e))
     })
 }
+getTransactions().then(res => console.log(res));
 ```
 
 ```js
@@ -158,6 +170,16 @@ function login($username, $password) {
 
 ```php
 // Resposta
+function login($username, $password) {
+    $sql = "SELECT username, password
+            FROM users 
+            WHERE username = :username AND password = :password";
+    $pdo->prepare($sql);
+    $pdo->execute(array(':username' => $username, ':password' => $password));
+    $users = $pdo->fetchAll();
+    return $users[0];
+}
+
 ```
 
 ---
