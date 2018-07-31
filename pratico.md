@@ -174,7 +174,7 @@ function login($username, $password) {
     $sql = "SELECT username, password
             FROM users 
             WHERE username = :username AND password = :password";
-    $pdo->prepare($sql)
+    $pdo->prepare($sql);
     $pdo->execute(array(':username' => $username, ':password' => $password));
     $users = $pdo->fetchAll();
     return $users[0];
