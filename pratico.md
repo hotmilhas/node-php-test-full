@@ -170,6 +170,29 @@ function login($username, $password) {
 
 ```php
 // Resposta
+Class Login{
+    private $mysqli;
+
+    function __construct($config){
+        $this->mysqli = mysqli_connect($config['host'],$config['user'],$config['pass'],$config['dbname']) or die(mysqli_error());
+    }
+
+    public function login($username, $password){
+        $query = " SELECT username, password
+                   FROM users 
+                   WHERE username = ? AND password = ?";
+        $statement = $this->mysqli->prepare($query);
+        $statement->bind_param("ss", $username,$password);
+        try{
+            $statement->execute();
+            $users = $this->get_result($statement);
+            return $users[0];
+        }catch(Exception $e){
+            echo $e;
+        }
+    }
+}
+
 ```
 
 ---
