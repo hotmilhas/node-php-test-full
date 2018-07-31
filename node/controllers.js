@@ -35,7 +35,6 @@ module.exports = {
         if (orders) {
             id = orders[orders.length - 1].id + 1;
         } else {
-            console.log('nao tem')
             orders = [];
         }
 
