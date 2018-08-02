@@ -1,0 +1,23 @@
+{
+    "name": "node-php-test-middle/php",
+    "authors": [
+        {
+            "name": "Erico de oliveira leandro",
+            "email": "erico.autocad@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+	"autoload" : {
+		 "psr-4" : { 
+			"Desenvolvimento\\" : "oop/Desenvolvimento/"
+		}
+	},
+	"autoload-dev" : {
+		 "psr-4" : { 
+			"Desenvolvimento\\" : "tests/"
+		}
+	}
+}
