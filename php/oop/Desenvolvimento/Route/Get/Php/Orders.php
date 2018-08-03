@@ -9,8 +9,7 @@ class Orders implements \Desenvolvimento\Route\ControllerInterface {
 	public function __construct( \Desenvolvimento\Order $order )
 	{
 		
-		$this->dollarQuotation = $dollarQuotation;
-		$this->order           = $order;
+		$this->order = $order;
 		
 	}
 	
