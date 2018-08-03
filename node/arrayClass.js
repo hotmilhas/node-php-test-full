@@ -29,42 +29,8 @@ class Array {
 let ar1 = new Array(  )
 let ar2 = new Array( [1, 2, 3, 4, 5] )
 
-//console.log( ar1, ar2 )
-//console.log( ar1.last(  ), ar2.last(  ) )
-
-//"use strict";
-
-function retornarDadosUsuario() {
-    
-    return new Promise((resolve, reject) => {
-        
-        const usuario = { 'nome': 'Erick Wendel', 'id': 10 };
-         
-        return resolve(usuario);
-
-    });
-
-};
-
-function retornarEndereco(usuario) {
-    return new Promise((resolve, reject) => {
-        usuario.endereco = [{ 'userId': usuario.id, 'descricao': 'Rua dos bobos, 0' }];
-        return resolve(usuario);
-    });
-};
-function retornarTelefone(usuario) {
-    return new Promise((resolve, reject) => {
-        usuario.telefone = [{ 'userId': usuario.id, 'numero': '(11) 9999-9999' }];
-        return resolve(usuario);
-    });
-};
-
-function retornarVeiculo(usuario) {
-    return new Promise((resolve, reject) => {
-        usuario.veiculo = { 'userId': usuario.id, 'descricao': 'Fuscão Turbo' };
-        return resolve(usuario);
-    });
-};
+console.log( ar1.last(  ) ) //undefined
+console.log( ar2.last(  ) ) //5
 
 function getTransactions() {
     return new Promise((resolve, reject) => {
@@ -204,31 +170,4 @@ getTransactions2(  )
         
         (error) => {
             console.log(`ocorreu o seguinte erro: [ ${error} ]`);
-        });
-
-
-
-
-
-
-retornarDadosUsuario()
-    
-    .then(retornarEndereco)
-    .then(retornarTelefone)
-    .then(retornarVeiculo)
-
-    .then(
-        (resultados) => {
-            let mensagem = `
-                                Usuario: ${resultados.nome},
-                                Endereco: ${resultados.endereco[0].descricao}
-                                Telefone: ${resultados.telefone[0].numero}
-                                Veiculo: ${resultados.veiculo.descricao}
-                            `;
-
-            //console.log(mensagem);
-        },
-        
-        (error) => {
-            console.log(`deu zica !!!! [ ${error} ]`);
         });
