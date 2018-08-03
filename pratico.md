@@ -158,6 +158,22 @@ function login($username, $password) {
 
 ```php
 // Resposta
+
+function login($username, $password) {
+	
+    $sql = "
+        select * 
+        from users 
+        where username = :username AND password = :password
+    ";
+
+	$sth = $dbh->prepare( $sql );
+	$sth->execute(array(':username' => $username, ':password' => $password));
+	$user = $sth->fetch(PDO::FETCH_ASSOC);
+
+    return $user;
+	
+}
 ```
 
 ---
