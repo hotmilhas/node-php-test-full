@@ -1,1 +1,1 @@
-O:20:"FileSystemCacheValue":5:{s:3:"key";O:18:"FileSystemCacheKey":2:{s:3:"key";s:16:"dollar_quotation";s:5:"group";N;}s:5:"value";a:2:{s:3:"brl";i:1;s:3:"usd";d:0.26000000000000001;}s:3:"ttl";i:14400;s:7:"expires";i:1533278553;s:7:"created";i:1533264153;}
+O:20:"FileSystemCacheValue":5:{s:3:"key";O:18:"FileSystemCacheKey":2:{s:3:"key";s:16:"dollar_quotation";s:5:"group";N;}s:5:"value";a:2:{s:3:"brl";i:1;s:3:"usd";d:0.26000000000000001;}s:3:"ttl";i:14400;s:7:"expires";i:1533314147;s:7:"created";i:1533299747;}

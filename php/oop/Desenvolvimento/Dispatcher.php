@@ -45,13 +45,15 @@ class Dispatcher {
 		
 	}
 		
-	public function dispatch(  )
+	public function dispatch( $path_root_request = null, $request_method = null )
 	{
-		header('Content-Type: application/json');
-		
-		$path_root_request = $_SERVER[ "PHP_SELF" ];
-		$request_method    = $_SERVER[ "REQUEST_METHOD" ];
-		
+				
+		if( is_null( $path_root_request ) ) {
+			$path_root_request = $_SERVER[ "PHP_SELF" ];
+		}
+		if( is_null( $request_method ) ) {
+			$request_method    = $_SERVER[ "REQUEST_METHOD" ];
+		}
 		$routes = $this->getRoutes(  );
 		
 		if( !empty( $routes [ $request_method ] )  ) {
@@ -62,7 +64,7 @@ class Dispatcher {
 				$instance_controller = $this->dependencyManager->getInstanceDependencyOfContainer( $controller_class_name );
 				$instance_controller->run(  );
 				
-				return true;
+				return $instance_controller;
 				
 			} else {
 				
