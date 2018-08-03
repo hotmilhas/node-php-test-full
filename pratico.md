@@ -5,6 +5,39 @@
 ```js
 // Resposta
 
+"use strict"
+
+class Array {
+	
+	constructor( elements ) {
+		
+		this.setElements( elements )
+	}
+	
+	setElements( elements ) 
+	{
+		if( elements != null ) { 
+			this.elements = elements
+		}else {
+			this.elements = []
+		}
+	}
+	
+	last( ) {
+		
+		if( this.elements.length > 0 ) { 
+			return this.elements[ this.elements.length - 1 ]
+		} else {
+			return undefined;
+		}
+	}
+}
+
+let ar1 = new Array(  )
+let ar2 = new Array( [1, 2, 3, 4, 5] )
+
+console.log( ar1.last(  ) ) //undefined
+console.log( ar2.last(  ) ) //5
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
