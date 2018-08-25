@@ -104,17 +104,17 @@ $a === true; // false
 
 2\) Qual a função do apache ou nginx em uma aplicação PHP?
 
-[Resposta]
+A função do apache / nginx é criar um servidor web para receber as requisições HTTP, buscar os arquivos necessários e / ou executar scripts PHP e devolver o html ao cliente.
 
 ---
 
 3\) Existem threads em PHP?
 
-[Resposta]
+Sim, PHP é uma linguagem multi thread.
 
 3.1) Explique
 
-[Resposta]
+PHP suporta processamento em paralelo através do uso da extensão pthreads.
 
 ---
 
@@ -129,10 +129,10 @@ class Test {
 echo Test::prop;
 ```
 
-[Resposta]
+1337
 
 4.2)
-```js
+```php
 class A {
     public static function foo() {
         return 'bar';
@@ -152,4 +152,4 @@ class B extends A {
 B::test();
 ```
 
-[Resposta]
+'bar'
