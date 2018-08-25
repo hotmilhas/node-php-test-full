@@ -2,33 +2,35 @@
 
 1\) Qual a diferença do operador `==` para o operador `===` em JavaScript?
 
-[Resposta]
+O operador '===' além de verificar se os valores são iguais, ele também verifica se são do mesmo tipo, já o operador '==' apenas verificas se os valores são iguais, sem considerar a tipagem.
+
 
 1.1) Dê 2 exemplos de quando os operadores produziriam resultados diferentes
 
-```js
-// Resposta
-```
+'1' == 1; // true
+'1' === 1; // false
+undefined == false; // true
+undefined === false; // false
 
 ---
 
 2\) Qual recurso javascript é mais recomendado para tratar chamadas asíncronas?
 
-[Resposta]
+O recurso mais recomendado para tratar chamadas assíncronas são as Promises.
 
 2.1) Justifique
 
-[Resposta]
+Com o uso das Promises, é possível controlar o fluxo de execução do código javascript, permitindo decidir o que será retornado caso uma Promise seja aceita ou rejeitada executar o callback correto através do método then() da Promise que pode inclusive ser encadeado a outros métodos then().
 
 ---
 
 3\) Existem threads em Node?
 
-[Resposta]
+Node é single thread.
 
 3.1) Explique
 
-[Resposta]
+Node trabalha com single thread não bloqueante e executa funções de maneiras assíncronas através de um event-loop que recebe todas as requisições. Porém é possível destribuir essas requisições para novos processos através do uso de clusterização. 
 
 ---
 
@@ -51,7 +53,7 @@ getUserByName('jonh doe')
     .then(user => console.log(user))
 ```
 
-[Resposta]
+Resultado: undefined
 
 4.2)
 ```js
@@ -76,9 +78,7 @@ getData()
     })
 ```
 
-```
-[Resposta]
-```
+Resultado : second
 
 ---
 
@@ -86,12 +86,18 @@ getData()
 
 1\) Qual a diferença do operador `==` para o operador `===` em PHP?
 
-[Resposta]
+O operador '===' além de verificar se os valores são iguais, ele também verifica se são do mesmo tipo, já o operador '==' apenas verificas se os valores são iguais, sem considerar a tipagem.
+
 
 1.1) Dê 2 exemplos de quando os operadores produziriam resultados diferentes
 
-```php
-// Resposta
+```
+$a = '1';
+$a == 1; // true
+$a === 1; // false
+$a == true; // true
+$a === true; // false
+
 ```
 
 ---
