@@ -1,0 +1,14 @@
+{
+  "name": "nodePHPTest",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.0.0",
+    "compression": "^1.6.1",
+    "express": ">4.2.0",
+    "express-load": "^1.1.15",
+    "express-session": "^1.13.0",
+    "forever-monitor": "^1.7.0",
+    "method-override": "^2.3.5"
+  }
+}
