@@ -157,7 +157,17 @@ function login($username, $password) {
 ```
 
 ```php
-// Resposta
+function login($username, $password) {
+    $sql = "
+        select * 
+        from users 
+        where username = :username AND password = :password
+    ";
+    
+    $p_sql = $pdo->prepare($sql);
+    $p_sql->execute([':username' => $username, ':password' => $password]);
+    return $p_sql->fetch(PDO::FETCH_ASSOC);
+    
 ```
 
 ---
