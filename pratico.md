@@ -167,6 +167,7 @@ function login($username, $password) {
     $p_sql = $pdo->prepare($sql);
     $p_sql->execute([':username' => $username, ':password' => $password]);
     return $p_sql->fetch(PDO::FETCH_ASSOC);
+}
     
 ```
 
