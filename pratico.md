@@ -4,7 +4,7 @@
 
 ```js
 // Resposta
-
+Array.prototype.last = () => { return this[this.length - 1]; };
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -157,7 +157,18 @@ function login($username, $password) {
 ```
 
 ```php
-// Resposta
+function login($username, $password) {
+    $sql = "
+        select * 
+        from users 
+        where username = :username AND password = :password
+    ";
+    
+    $p_sql = $pdo->prepare($sql);
+    $p_sql->execute([':username' => $username, ':password' => $password]);
+    return $p_sql->fetch(PDO::FETCH_ASSOC);
+}
+    
 ```
 
 ---
