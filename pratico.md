@@ -4,7 +4,7 @@
 
 ```js
 // Resposta
-
+Array.prototype.last = () => { return this[this.length - 1]; };
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
