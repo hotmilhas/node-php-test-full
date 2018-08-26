@@ -9,7 +9,7 @@ class Order
 
         $nextID = 1;
         $orders = [];
-        $file = file_get_contents(__DIR__ . '/../orders.json');
+        $file = file_get_contents(__DIR__ . '/../../orders.json');
 
         if(!empty($file)) {
             $orders = json_decode(($file));
@@ -18,13 +18,13 @@ class Order
 
         $order['id'] = $nextID;
         $orders[] = $order;
-        file_put_contents(__DIR__ . '/../orders.json', json_encode($orders), LOCK_EX);
+        file_put_contents(__DIR__ . '/../../orders.json', json_encode($orders), LOCK_EX);
     }
 
     public static function getAll()
     {
         $orders = [];
-        $file = file_get_contents(__DIR__ . '/../orders.json');
+        $file = file_get_contents(__DIR__ . '/../../orders.json');
 
         if(!empty($file)) {
             $orders = json_decode(($file));
