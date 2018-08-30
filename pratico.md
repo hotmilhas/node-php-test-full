@@ -4,7 +4,11 @@
 
 ```js
 // Resposta
-
+if (!Array.prototype.last){
+    Array.prototype.last = function(){
+        return this[this.length - 1];
+    };
+}; 
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -159,7 +163,15 @@ function login($username, $password) {
 ```php
 // Resposta
 ```
-
+public function login($username, $password) {
+    $pdo = new PDO('mysql:host=localhost;dbname=crud', 'root', '');
+    $stmt = $pdo->prepare('select * from users  where username = :username AND password = :password');
+    $stmt->bindValue(':username', $username);
+    $stmt->bindValue(':password', $password);
+    $run = $stmt->execute();
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   return $users;
+}
 ---
 
 3\) Dentro da pasta [php](./php), modifique os arquivos de cada pseudo-rota, para atender os seguintes requisitos:
