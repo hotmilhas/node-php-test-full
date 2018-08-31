@@ -158,8 +158,14 @@ function login($username, $password) {
 
 ```php
 // Resposta
+function login($username, $password) {
+    $sql = 'SELECT username, email FROM users WHERE username = :username AND password = :password';
+    $statement = $pdo->prepare($sql);
+    $statement->execute();
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
 ```
-
 ---
 
 3\) Dentro da pasta [php](./php), modifique os arquivos de cada pseudo-rota, para atender os seguintes requisitos:
