@@ -49,9 +49,6 @@ function getTransactions() {
 ```js
 // Resposta
 
-const fetch = require('node-fetch')
-const BASE_URL = 'http://127.0.0.1:3001'
-
 const parseTransactions = (arr=[]) => {
   return arr.reduce((transactions, transaction) => {
     if (transaction.realizada && transaction.valor) {
