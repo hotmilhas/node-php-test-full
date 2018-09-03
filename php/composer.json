@@ -1,0 +1,22 @@
+{
+    "name": "marcos/php",
+    "description": "php test by marcosc coelho",
+    "type": "test",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "phlak/stash": "^5.1",
+        "Josantonius/Session": "^1.1"
+    },
+    "autoload": {
+        "files": [
+            "includes/constants.php",
+            "includes/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Marcos Coelho",
+            "email": "marcos@marcoscoelho.com"
+        }
+    ]
+}
