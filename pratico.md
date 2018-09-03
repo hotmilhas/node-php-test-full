@@ -186,6 +186,15 @@ function login($username, $password) {
 
 ```php
 // Resposta
+
+function login($username, $password)
+{
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    $stmt->execute([$username, $password]);
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $users[0];
+}
 ```
 
 ---
