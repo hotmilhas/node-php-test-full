@@ -65,12 +65,16 @@ const parseTransactions = (arr=[]) => {
 const getTransactions = async () => {
   try {
     const result = await fetch(BASE_URL + '/api/transacoes')
-    const transactions = parseTransactions(result.json())
-    return transactions
+    const json = await result.json()
+    return parseTransactions(json)
   } catch (e) {
-    console.log(e)
+    return Promise.reject(e)
   }
 }
+
+// getTransactions()
+//   .then(transactions => console.log(transactions))
+//   .catch(e => console.log(e))
 ```
 
 ---
