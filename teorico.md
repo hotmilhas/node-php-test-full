@@ -2,23 +2,38 @@
 
 1\) Qual a diferença do operador `==` para o operador `===` em JavaScript?
 
-[Resposta]
+O operador de igualdade `==` converte os operandos para um mesmo tipo, caso não sejam e em seguida faz a comparação estrita.
+O operador de identidade `===` retorna verdadeiro se ambos os operandos forem estritamente idênticos, sem conversão de tipo.
 
 1.1) Dê 2 exemplos de quando os operadores produziriam resultados diferentes
 
 ```js
 // Resposta
+
+const a = 1
+const b = true
+
+console.log({
+    'a == b': a==b, // true
+    'a === b': a===b // false
+});
 ```
 
 ---
 
 2\) Qual recurso javascript é mais recomendado para tratar chamadas asíncronas?
 
-[Resposta]
+`Async/Await ` 
 
 2.1) Justifique
 
-[Resposta]
+Entre utilizar `callbacks`, `promises` ou `async/await`, o último deixa o código
+mais limpo e conciso, facilita a manipulacao de erros utilizando `try/catch`,
+o uso de condicionais fica mais legível e melhora a depuração de erros, por
+exemplo: quando houver um ponto de interrupção detro de um bloco `.then` ao
+passar para o próximo passo o depurador seguirá direto ao invés de parar no
+próximo `.then` por não ser um código síncrono e uma pilha de erros
+retornada de uma cadeia de `Promises` não dá idéia de onde o erro ocorreu.
 
 ---
 
