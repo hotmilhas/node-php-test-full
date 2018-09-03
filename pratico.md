@@ -4,7 +4,9 @@
 
 ```js
 // Resposta
-
+if (!Array.prototype.last) {
+  Array.prototype.last = function () { return this[this.length-1] }
+}
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -46,6 +48,32 @@ function getTransactions() {
 
 ```js
 // Resposta
+
+const fetch = require('node-fetch')
+const BASE_URL = 'http://127.0.0.1:3001'
+
+const parseTransactions = (arr=[]) => {
+  return arr.reduce((transactions, transaction) => {
+    if (transaction.realizada && transaction.valor) {
+      transactions.push({
+        id: transaction.id,
+        value: transaction.valor,
+        type: transaction.valor < 0 ? 'transference' : 'deposit'
+      })
+    }
+    return transactions
+  }, [])
+}
+
+const getTransactions = async () => {
+  try {
+    const result = await fetch(BASE_URL + '/api/transacoes')
+    const transactions = parseTransactions(result.json())
+    return transactions
+  } catch (e) {
+    console.log(e)
+  }
+}
 ```
 
 ---
