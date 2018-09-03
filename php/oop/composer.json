@@ -1,0 +1,15 @@
+{
+    "name": "marcos/oop",
+    "authors": [
+        {
+            "name": "Marcos Coelho",
+            "email": "marcos@marcoscoelho.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Parking\\": "src/"
+        }
+    },
+    "require": {}
+}

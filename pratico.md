@@ -4,7 +4,9 @@
 
 ```js
 // Resposta
-
+if (!Array.prototype.last) {
+  Array.prototype.last = function () { return this[this.length-1] }
+}
 
 // Teste/Exemplos
 const array1 = [1,2,3,4,5,6,7,8,9]
@@ -46,6 +48,33 @@ function getTransactions() {
 
 ```js
 // Resposta
+
+const parseTransactions = (arr=[]) => {
+  return arr.reduce((transactions, transaction) => {
+    if (transaction.realizada && transaction.valor) {
+      transactions.push({
+        id: transaction.id,
+        value: transaction.valor,
+        type: transaction.valor < 0 ? 'transference' : 'deposit'
+      })
+    }
+    return transactions
+  }, [])
+}
+
+const getTransactions = async () => {
+  try {
+    const result = await fetch(BASE_URL + '/api/transacoes')
+    const json = await result.json()
+    return parseTransactions(json)
+  } catch (e) {
+    return Promise.reject(e)
+  }
+}
+
+// getTransactions()
+//   .then(transactions => console.log(transactions))
+//   .catch(e => console.log(e))
 ```
 
 ---
@@ -158,6 +187,15 @@ function login($username, $password) {
 
 ```php
 // Resposta
+
+function login($username, $password)
+{
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+    $stmt->execute([$username, $password]);
+    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $users[0];
+}
 ```
 
 ---
